@@ -1,0 +1,4 @@
+#Tue Nov 21 17:18:45 CST 2017
+base.0=C\:\\Users\\Administrator\\AndroidStudioProjects\\scanandroid\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\28
+path.0=classes.dex
+renamed.0=classes.dex
