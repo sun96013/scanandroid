@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
+    abi="armeabi-v7a,armeabi"
     api-level="22"
     build-mode="COLD"
-    density="xxhdpi"
+    density="hdpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
     plugin-version="3.0.1"
-    timestamp="1511256113455"
+    timestamp="1512468289491"
     token="-8719892658103741685"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FIELD_ADDED" >
 
     <task
         name="javac"
-        duration="726" />
+        duration="466" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="39" />
+        duration="50" />
     <task
         name="verifier"
-        duration="11" />
+        duration="27" />
 
     <artifact
         location="C:\Users\Administrator\AndroidStudioProjects\scanandroid\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
@@ -33,9 +32,8 @@
 
     <build
         build-mode="FULL"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1511255913124"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="1512465271978"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Administrator\AndroidStudioProjects\scanandroid\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
@@ -75,9 +73,26 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1511256113455"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1512465698562"
         verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Administrator\AndroidStudioProjects\scanandroid\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1512468239271"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Administrator\AndroidStudioProjects\scanandroid\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1512468289491"
+        verifier="FIELD_ADDED" >
         <artifact
             location="C:\Users\Administrator\AndroidStudioProjects\scanandroid\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
