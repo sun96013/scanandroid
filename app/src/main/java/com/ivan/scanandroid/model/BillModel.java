@@ -3,6 +3,8 @@
  */
 package com.ivan.scanandroid.model;
 
+import java.io.Serializable;
+
 /**
  * Auto-generated: 2017-12-06 16:53:1
  *
@@ -38,7 +40,7 @@ public class BillModel {
      * @author bejson.com (i@bejson.com)
      * @website http://www.bejson.com/java2pojo/
      */
-    public class JsonResult {
+    public class JsonResult  implements Serializable {
 
         private int Car_ID;
         private int TestType_ID;

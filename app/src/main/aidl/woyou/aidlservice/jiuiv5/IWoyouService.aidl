@@ -7,7 +7,7 @@ package woyou.aidlservice.jiuiv5;
 
 import woyou.aidlservice.jiuiv5.ICallback;
 import android.graphics.Bitmap;
-import com.sunmi.trans.TransBean;
+import com.ivan.scanandroid.trans.TransBean;
 
 interface IWoyouService
 {
