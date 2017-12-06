@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.ivan.scanandroid.utils.AidlUtil;
+
 public class PrintActivity extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,8 @@ public class PrintActivity extends Activity {
         if (intent != null) {
             String value = intent.getStringExtra("result");
             Toast.makeText(PrintActivity.this, value, Toast.LENGTH_LONG).show();
+
+            AidlUtil.getInstance().printText("签到券",20,true,false,true);
         }
     }
 }
