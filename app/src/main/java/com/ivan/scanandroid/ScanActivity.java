@@ -15,8 +15,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.ivan.scanandroid.model.BillModel;
@@ -43,10 +41,9 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
     SoundUtils soundUtils;
     private boolean vibrate;
     public int decode_count = 0;
-    AlertDialog alertDialog=null;
-    boolean isShow=true;
+    AlertDialog alertDialog = null;
+    boolean isShow = true;
     private FinderView finder_view;
-
 
 
     @Override
@@ -124,10 +121,12 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
             }
         }
     };
-
+    Intent Printintent =null;
     private class AsyncDecode extends AsyncTask<Image, Void, Void> {
         private boolean stoped = true;
         private String str = "";
+
+        private String coderesult = "";
 
         @Override
         protected Void doInBackground(Image... params) {
@@ -152,23 +151,26 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
                 SymbolSet syms = scanner.getResults();//获取解码结果
                 for (Symbol sym : syms) {
                     sb.append("[ " + sym.getSymbolName() + " ]: " + sym.getResult() + "\n");
+                    coderesult = sym.getResult();
                 }
             }
+            //         result=sym.getResult();
             str = sb.toString();
             return null;
         }
 
         @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
+        protected void onPostExecute(Void str) {
+            super.onPostExecute(str);
+            Log.d("onPostExecute", "code:" + coderesult);
             stoped = true;
-            if (null == str || str.equals("")) {
+            if (null == coderesult || coderesult.equals("")) {
             } else {
 
                 HttpUtil hutil = new HttpUtil();
                 HashMap<String, String> map = new HashMap();
 
-                map.put("BillNo", str);
+                map.put("BillNo", coderesult);
                 hutil.requestAsyn("BillVerification", HttpUtil.TYPE_GET, map, new HttpUtil.ReqCallBack<Object>() {
                     @Override
                     public void onReqSuccess(Object result) {
@@ -178,32 +180,35 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
                             Log.d("onReqSuccess", "Success");
                             BillModel tempmodel = gson.fromJson(result.toString(), BillModel.class);
 
-                            Intent intent=new Intent(ScanActivity.this,PrintActivity.class);
-                            intent.putExtra("result", str);
-                            startActivity(intent);
 
-                        }else
-                        {
-                            if(alertDialog==null)
+                            if(Printintent==null)
                             {
-                                alertDialog= new AlertDialog.Builder(ScanActivity.this)
+                                Printintent = new Intent(ScanActivity.this, PrintActivity.class);
+                                Printintent.putExtra("result", coderesult);
+                                startActivity(Printintent);
+                                finish();
+                            }
+
+
+                        } else {
+                            if (alertDialog == null) {
+                                alertDialog = new AlertDialog.Builder(ScanActivity.this)
                                         .setTitle("提示")
-                                        .setMessage(model.getResult())
+                                        .setMessage(model.getResult().toString())
                                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
-                                                isShow=true;
+                                                isShow = true;
                                             }
                                         }).create();
 
                             }
-                            if(isShow)
-                            {
+                            if (isShow) {
                                 alertDialog.show();
                                 isShow = false;
                             }
 
-                          //  Toast.makeText(ScanActivity.this, model.getResult(), Toast.LENGTH_SHORT).show();
+                            //  Toast.makeText(ScanActivity.this, model.getResult(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -280,7 +285,7 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
      * When the beep has finished playing, rewind to queue up another one.
      */
      /*private final OnCompletionListener beepListener = new OnCompletionListener() {
- 		public void onCompletion(MediaPlayer mediaPlayer) {
+         public void onCompletion(MediaPlayer mediaPlayer) {
  			mediaPlayer.seekTo(0);
  		}
  	};*/

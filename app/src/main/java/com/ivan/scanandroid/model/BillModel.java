@@ -1,10 +1,10 @@
 /**
  * Copyright 2017 bejson.com
  */
-package  com.ivan.scanandroid.model;
+package com.ivan.scanandroid.model;
 
 /**
- * Auto-generated: 2017-12-01 13:42:40
+ * Auto-generated: 2017-12-06 16:53:1
  *
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
@@ -12,7 +12,7 @@ package  com.ivan.scanandroid.model;
 public class BillModel {
 
     private String ResultStatus;
-    private Result Result;
+    private JsonResult Result;
     public void setResultStatus(String ResultStatus) {
         this.ResultStatus = ResultStatus;
     }
@@ -20,23 +20,25 @@ public class BillModel {
         return ResultStatus;
     }
 
-    public void setResult(Result Result) {
+    public void setResult(JsonResult Result) {
         this.Result = Result;
     }
-    public Result getResult() {
+    public JsonResult getResult() {
         return Result;
     }
-/**
- * Copyright 2017 bejson.com
- */
 
     /**
-     * Auto-generated: 2017-12-01 13:42:40
+     * Copyright 2017 bejson.com
+     */
+
+
+    /**
+     * Auto-generated: 2017-12-06 16:53:1
      *
      * @author bejson.com (i@bejson.com)
      * @website http://www.bejson.com/java2pojo/
      */
-    public class Result {
+    public class JsonResult {
 
         private int Car_ID;
         private int TestType_ID;
@@ -47,9 +49,10 @@ public class BillModel {
         private String BillCode;
         private int iAppTimeNum;
         private int MakeUserID;
-        private int iAppMon;
+        private int iTotalMon;
+        private int iRelMon;
         private String Car_Brand;
-        private int Car_SortNo;
+        private String Car_SortNo;
         private String User_Name;
         private String User_Phone;
         public void setCar_ID(int Car_ID) {
@@ -115,11 +118,18 @@ public class BillModel {
             return MakeUserID;
         }
 
-        public void setIAppMon(int iAppMon) {
-            this.iAppMon = iAppMon;
+        public void setITotalMon(int iTotalMon) {
+            this.iTotalMon = iTotalMon;
         }
-        public int getIAppMon() {
-            return iAppMon;
+        public int getITotalMon() {
+            return iTotalMon;
+        }
+
+        public void setIRelMon(int iRelMon) {
+            this.iRelMon = iRelMon;
+        }
+        public int getIRelMon() {
+            return iRelMon;
         }
 
         public void setCar_Brand(String Car_Brand) {
@@ -129,10 +139,10 @@ public class BillModel {
             return Car_Brand;
         }
 
-        public void setCar_SortNo(int Car_SortNo) {
+        public void setCar_SortNo(String Car_SortNo) {
             this.Car_SortNo = Car_SortNo;
         }
-        public int getCar_SortNo() {
+        public String getCar_SortNo() {
             return Car_SortNo;
         }
 
@@ -152,4 +162,3 @@ public class BillModel {
 
     }
 }
-
