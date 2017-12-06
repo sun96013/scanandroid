@@ -184,7 +184,7 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
                             if(Printintent==null)
                             {
                                 Printintent = new Intent(ScanActivity.this, PrintActivity.class);
-                                Printintent.putExtra("result", coderesult);
+                                Printintent.putExtra("result", tempmodel.getResult());
                                 startActivity(Printintent);
                                 finish();
                             }
