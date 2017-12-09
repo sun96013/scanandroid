@@ -4,6 +4,7 @@
 package com.ivan.scanandroid.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Auto-generated: 2017-12-06 16:53:1
@@ -15,9 +16,11 @@ public class BillModel {
 
     private String ResultStatus;
     private JsonResult Result;
+
     public void setResultStatus(String ResultStatus) {
         this.ResultStatus = ResultStatus;
     }
+
     public String getResultStatus() {
         return ResultStatus;
     }
@@ -25,6 +28,7 @@ public class BillModel {
     public void setResult(JsonResult Result) {
         this.Result = Result;
     }
+
     public JsonResult getResult() {
         return Result;
     }
@@ -40,7 +44,7 @@ public class BillModel {
      * @author bejson.com (i@bejson.com)
      * @website http://www.bejson.com/java2pojo/
      */
-    public class JsonResult  implements Serializable {
+    public class JsonResult implements Serializable {
 
         private int Car_ID;
         private int TestType_ID;
@@ -53,13 +57,60 @@ public class BillModel {
         private int MakeUserID;
         private int iTotalMon;
         private int iRelMon;
+        private  int Num;
         private String Car_Brand;
         private String Car_SortNo;
         private String User_Name;
         private String User_Phone;
+        private  String DrivSch_Name;
+        private Date dReservationDay;
+        private String ContactPhone;
+        private String CoachUserName;
+
+        public int getNum() {
+            return Num;
+        }
+
+        public void setNum(int num) {
+            Num = num;
+        }
+
+        public String getDrivSch_Name() {
+            return DrivSch_Name;
+        }
+
+        public void setDrivSch_Name(String drivSch_Name) {
+            DrivSch_Name = drivSch_Name;
+        }
+
+        public String getCoachUserName() {
+            return CoachUserName;
+        }
+
+        public Date getdReservationDay() {
+            return dReservationDay;
+        }
+
+        public void setdReservationDay(Date dReservationDay) {
+            this.dReservationDay = dReservationDay;
+        }
+
+        public String getContactPhone() {
+            return ContactPhone;
+        }
+
+        public void setContactPhone(String contactPhone) {
+            ContactPhone = contactPhone;
+        }
+
+        public void setCoachUserName(String coachUserName) {
+            CoachUserName = coachUserName;
+        }
+
         public void setCar_ID(int Car_ID) {
             this.Car_ID = Car_ID;
         }
+
         public int getCar_ID() {
             return Car_ID;
         }
@@ -67,6 +118,7 @@ public class BillModel {
         public void setTestType_ID(int TestType_ID) {
             this.TestType_ID = TestType_ID;
         }
+
         public int getTestType_ID() {
             return TestType_ID;
         }
@@ -74,6 +126,7 @@ public class BillModel {
         public void setDStartTime(String dStartTime) {
             this.dStartTime = dStartTime;
         }
+
         public String getDStartTime() {
             return dStartTime;
         }
@@ -81,6 +134,7 @@ public class BillModel {
         public void setDEndTime(String dEndTime) {
             this.dEndTime = dEndTime;
         }
+
         public String getDEndTime() {
             return dEndTime;
         }
@@ -88,6 +142,7 @@ public class BillModel {
         public void setBillStatus(int BillStatus) {
             this.BillStatus = BillStatus;
         }
+
         public int getBillStatus() {
             return BillStatus;
         }
@@ -95,6 +150,7 @@ public class BillModel {
         public void setCMemo(String cMemo) {
             this.cMemo = cMemo;
         }
+
         public String getCMemo() {
             return cMemo;
         }
@@ -102,6 +158,7 @@ public class BillModel {
         public void setBillCode(String BillCode) {
             this.BillCode = BillCode;
         }
+
         public String getBillCode() {
             return BillCode;
         }
@@ -109,6 +166,7 @@ public class BillModel {
         public void setIAppTimeNum(int iAppTimeNum) {
             this.iAppTimeNum = iAppTimeNum;
         }
+
         public int getIAppTimeNum() {
             return iAppTimeNum;
         }
@@ -116,6 +174,7 @@ public class BillModel {
         public void setMakeUserID(int MakeUserID) {
             this.MakeUserID = MakeUserID;
         }
+
         public int getMakeUserID() {
             return MakeUserID;
         }
@@ -123,6 +182,7 @@ public class BillModel {
         public void setITotalMon(int iTotalMon) {
             this.iTotalMon = iTotalMon;
         }
+
         public int getITotalMon() {
             return iTotalMon;
         }
@@ -130,6 +190,7 @@ public class BillModel {
         public void setIRelMon(int iRelMon) {
             this.iRelMon = iRelMon;
         }
+
         public int getIRelMon() {
             return iRelMon;
         }
@@ -137,6 +198,7 @@ public class BillModel {
         public void setCar_Brand(String Car_Brand) {
             this.Car_Brand = Car_Brand;
         }
+
         public String getCar_Brand() {
             return Car_Brand;
         }
@@ -144,6 +206,7 @@ public class BillModel {
         public void setCar_SortNo(String Car_SortNo) {
             this.Car_SortNo = Car_SortNo;
         }
+
         public String getCar_SortNo() {
             return Car_SortNo;
         }
@@ -151,6 +214,7 @@ public class BillModel {
         public void setUser_Name(String User_Name) {
             this.User_Name = User_Name;
         }
+
         public String getUser_Name() {
             return User_Name;
         }
@@ -158,6 +222,7 @@ public class BillModel {
         public void setUser_Phone(String User_Phone) {
             this.User_Phone = User_Phone;
         }
+
         public String getUser_Phone() {
             return User_Phone;
         }

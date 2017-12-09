@@ -13,7 +13,9 @@ import com.ivan.scanandroid.util.DateUtil;
 import com.ivan.scanandroid.util.PrintModel;
 import com.ivan.scanandroid.util.PrintUtil;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PrintActivity extends Activity {
@@ -29,6 +31,14 @@ public class PrintActivity extends Activity {
         tvPrintContent = findViewById(R.id.tvPrintContent);
         initView();
     }
+    public static String dateToString(Date time){
+        SimpleDateFormat formatter;
+        formatter = new SimpleDateFormat ("yyyy-MM-dd");
+        String ctime = formatter.format(time);
+
+        return ctime;
+    }
+
 
     void initView() {
         Intent intent = getIntent();
@@ -41,14 +51,14 @@ public class PrintActivity extends Activity {
 
           //  list.add(new PrintModel("签到券", 40, true, false, true));
             list.add(new PrintModel("车牌：" + model.getCar_ID(), 30, false, false, false));
-            list.add(new PrintModel("预约时间：", 30, false, false, false));
+            list.add(new PrintModel("预约时间："+dateToString(model.getdReservationDay()), 30, false, false, false));
             list.add(new PrintModel("" + model.getDStartTime() + "-" + model.getDEndTime(), 30, false, false, false));
-            list.add(new PrintModel("预约人数：" + "" + "人", 30, false, false, false));
+            list.add(new PrintModel("预约人数：" + model.getNum() + "人", 30, false, false, false));
             list.add(new PrintModel("预交款：" + model.getITotalMon(), 30, false, false, false));
             list.add(new PrintModel("预约人信息：" + model.getUser_Name(), 30, false, false, false));
-            list.add(new PrintModel("联系电话：" + model.getUser_Name(), 30, false, false, false));
-            list.add(new PrintModel("驾校：" + model.getUser_Name(), 30, false, false, false));
-            list.add(new PrintModel("教练：" + model.getUser_Name(), 30, false, false, false));
+            list.add(new PrintModel("联系电话：" + model.getContactPhone(), 30, false, false, false));
+            list.add(new PrintModel("驾校：" + model.getDrivSch_Name(), 30, false, false, false));
+            list.add(new PrintModel("教练：" + model.getCoachUserName(), 30, false, false, false));
             list.add(new PrintModel("签到时间：" + DateUtil.getTime(), 30, false, false, false));
 
             StringBuilder sb = new StringBuilder();

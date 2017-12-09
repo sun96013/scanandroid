@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.ivan.scanandroid.model.BillModel;
 import com.ivan.scanandroid.model.NomalModel;
 import com.ivan.scanandroid.util.FinderView;
@@ -174,7 +175,7 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
                 hutil.requestAsyn("BillVerification", HttpUtil.TYPE_GET, map, new HttpUtil.ReqCallBack<Object>() {
                     @Override
                     public void onReqSuccess(Object result) {
-                        Gson gson = new Gson();
+                        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
                         NomalModel model = gson.fromJson(result.toString(), NomalModel.class);
                         if (model.getResultStatus().equals("Success")) {
                             Log.d("onReqSuccess", "Success");
