@@ -66,6 +66,7 @@ public class PrintActivity extends Activity {
                 sb.append(model1.getContent() + "\n\r");
             }
             tvPrintContent.setText(sb.toString());
+            tvPrintContent.setTextSize(30);
         }
     }
 
